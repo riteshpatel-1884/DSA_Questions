@@ -1,5 +1,5 @@
 
-public class arrange {
+public class arrange_Even_Odd {
   // Move even on left side and odd on right side
   // Explanation: Same as arrange_Zero_One problem. Here even numbers ko 0 assume
   // kr lo aur odd numbers ko 1 assume kr lo.
