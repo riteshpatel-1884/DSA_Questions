@@ -45,16 +45,13 @@ class Solution {
         }
 
         int total_pivot = n - left - (n - 1 - right);
-        // It will count the total pivot element and add it
-        // from the element less than pivot element 
+        // It will count the total pivot element and add it from the element less than pivot element 
         for(int i=0;i<total_pivot;i++)
         {
             result[left++] = pivot;
         }
 
-        // Reverse the elements > pivot that were inserted
-        // from right-to-left because they are currently in
-        // reverse order
+        // Reverse the elements > pivot that were inserted from right-to-left because they are currently in reverse order
         int start = right+1;
         int end = n-1;
         while(start<end)
