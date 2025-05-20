@@ -1,61 +1,68 @@
-1. Suppose from end 2nd (5) ko delete krna hai, then 2 pointer slow and fast lange.
-2. Initially dono head pe honge.
-3. sabse pahle Fast ko nth index pe le aayange(from starting) using loop.
-4. Then ab slow fast ko ek ek node shift kro until (fast == null) ho jaye.
-5. We will get nth index from end at slow pointer.
-6. This all will be done in only one traversal.
-7. This is called slow fast pointer or torture-rabbit technique
+public class LinkedList {
+  static class Node {
+    int data;
+    Node next;
 
+    Node(int val) {
+      this.data = val;
+      this.next = null;
+    }
+  }
+  Node head = null;
+  Node tail = null;
 
-// Method 1: Using One Traversal  
-public static Node nthNode(int n, Node head) {
-    Node slow = head;
+  void insert(int val) {
+    Node temp = new Node(val);
+    if (head == null) {
+      tail = head = temp;
+    } else {
+      tail.next = temp;
+      tail = temp;
+    }
+  }
+  public static Node nthFromEnd(int n, Node head) {
+    if (head == null || n <= 0)
+      return null;
+
     Node fast = head;
-    for (int i = 1; i <= n; i++) 
-    {
-        fast = fast.next;
+    Node slow = head;
+
+    for (int i = 0; i < n; i++) {
+      if (fast!= null)
+      fast = fast.next;
     }
-    while (fast != null) 
-    {
-        slow = slow.next;
-        fast = fast.next;
+
+    while (fast != null) {
+      fast = fast.next;
+      slow = slow.next;
     }
+
     return slow;
-}
-public static void main() 
-{
-    System.out.println(nthNode(a, 2));
-}
+  }
 
-
-
-
-
-
-
-
-
-
-//Method 2: Using Two traversal
-1. nth node from end = (m - n + 1)th from start (Using arithmetic progression)
-2. m = total node/ size
-3. Ex: 2nd from end = 5 - 2 + 1 = 4th from start.
-4. Since size niklane ke baad temp head pe nhi hoga so again initialize temp with head.
-  
-
-  public static Node nthNode(Node head, int n) {
-    int size = 0;
+  void display() {
     Node temp = head;
     while (temp != null) {
-        size++;
-        temp = temp.next;
+      System.out.println(temp.data);
+      temp = temp.next;
     }
-    int m = size - n + 1;
-    temp = head;
-    for (int i = 1; i <= m - 1; i++) {
-        temp = temp.next;
+  }
+
+  public static void main(String[] args) {
+    LinkedList obj = new LinkedList();
+    obj.insert(3);
+    obj.insert(5);
+    obj.insert(7);
+    obj.insert(9);
+    obj.insert(11);
+    obj.display();
+
+    int n = 2;
+    Node result = nthFromEnd(n, obj.head);
+    if (result != null) {
+      System.out.println(n + "th node from end is: " + result.data);
+    } else {
+      System.out.println("Invalid value of n or list is too short.");
     }
-    return temp;
+  }
 }
-
-
