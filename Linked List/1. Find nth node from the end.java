@@ -1,6 +1,6 @@
 1. Suppose from end 2nd (5) ko delete krna hai, then 2 pointer slow and fast lange.
 2. Initially dono head pe honge.
-3. sabse pahle Fast ko nth index pe le aayange using loop.
+3. sabse pahle Fast ko nth index pe le aayange(from starting) using loop.
 4. Then ab slow fast ko ek ek node shift kro until (fast == null) ho jaye.
 5. We will get nth index from end at slow pointer.
 6. This all will be done in only one traversal.
