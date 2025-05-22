@@ -14,3 +14,16 @@ class Solution {
         return prev;
     }
 }
+
+
+//Using recursion
+ public Node reverseRecursive(Node node) {
+        if (node == null || node.next == null) {
+            return node;
+        }
+
+        Node newHead = reverseRecursive(node.next);
+        node.next.next = node;
+        node.next = null;
+        return newHead;
+    }
