@@ -20,43 +20,29 @@
 
 
 
-public static void deleteNthNodeEnd(Node head, int n) {
-    Node slow = head;
-    Node fast = head;
 
-    for (int i = 1; i <= n; i++) {
-        fast = fast.next;
-    }
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+      ListNode slow = head;
+      ListNode fast = head;
 
-    if (fast == null) {
+      for(int i = 0; i<n; i++){
+            fast = fast.next;
+      }
+
+      if(fast == null){
         head = head.next;
-        return;
-    }
-
-    while (fast.next != null) {
-        slow = slow.next;
-        fast = fast.next;
-    }
-    slow.next = slow.next.next;
-}
-
-11. Ek problem ye hai ki abb new ehad 13 ban jayega but printing ke case mein head original wala hi print hoga without 
-    deleting 100.
-12. So in this case make return type of function Node instead of void and return head in it and after slow.next.
-
-  public static Node deleteNthNodeEnd(______) {
-    if (______) {
-        ______
         return head;
+      }
+
+      while(fast.next!=null){
+        fast = fast.next;
+        slow = slow.next;
+      }
+       slow.next = slow.next.next;
+       return head;
     }
-    while (______) {
-        ______
-    }
-    slow.next = ______
-    return head;
 }
-pvsm(){
-  a = deleteNthNodeEnd(a,6);
-  sout(a);
-}
+
+
 
