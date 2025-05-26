@@ -8,40 +8,35 @@ l2 = 5
 
 
 
-Node tempA = headA;  
-Node tempB = headB;  
-int lengthA = 0;
 
-while (tempA != null) {
-    lengthA++;
-    tempA = tempA.next;
-}
-
-int lengthB = 0;
-while (tempB != null) {
-    lengthB++;
-    tempB = tempB.next;
-}
-
-tempA = headA;
-tempB = headB;
-if (lengthA > lengthB) {
-    int steps = lengthA - lengthB;
-    for (int i = 1; i <= steps; i++) {
-        tempA = tempA.next;
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        int sizeA = 0;
+        int sizeB = 0;
+        ListNode tempA = headA;
+        ListNode tempB = headB;
+        while(tempA!=null){
+            sizeA++;
+            tempA = tempA.next;
+        }
+        while(tempB!=null){
+            sizeB++;
+            tempB = tempB.next;
+        }
+         tempA = headA;
+         tempB = headB;
+        if(sizeA>sizeB){
+            for(int i =0;i<(sizeA-sizeB);i++)
+                tempA = tempA.next;
+        }
+        else{
+            for(int i =0;i<(sizeB-sizeA);i++)
+                tempB = tempB.next;
+        }
+        while(tempA!=tempB){
+            tempA = tempA.next;
+            tempB = tempB.next;
+        }
+        return tempA;
     }
-}
-else {
-    int steps = lengthB - lengthA;
-    for (int i = 1; i <= steps; i++) {
-        tempB = tempB.next;
-    }
-}
-//jab tak tempA aur tempB equal na ho jaye tab tak increase krte jao 
-while (tempA != tempB) {
-    tempA = tempA.next;
-    tempB = tempB.next;
-}
-//jab dono equal ho jaye tab koi bhi ek return kr do.
-return tempA;
 }
