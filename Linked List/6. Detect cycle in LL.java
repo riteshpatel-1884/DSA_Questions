@@ -1,23 +1,23 @@
+
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        if(head == null) return false;
-        if(head.next == null) return false;
-
+        
         ListNode slow = head;
         ListNode fast = head;
-
-        while(fast != null) {
-            if(slow == null) return false;
-
+        
+        if (head == null || head.next == null)
+            return false;
+        
+        while (fast != null) {
+            if(slow.next == null) //agar slow ka next hi null ho jaye to false return kr do
+            return false;
             slow = slow.next;
-
-            if(fast.next == null) return false;
-
+            if(fast.next == null) //agar fast ka next hi null ho jaye to false return kr do
+            return false;
             fast = fast.next.next;
-
-            if(fast == slow) return true;
+            if (slow == fast)
+            return true;
         }
-
         return false;
     }
 }
