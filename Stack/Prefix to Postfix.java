@@ -9,7 +9,7 @@ public class practice {
       char ch = str.charAt(i);
       int ascii = (int) ch;
       if (ascii >= 48 && ascii <= 57) {
-        val.push(ch + " ");
+        val.push(ch + "");
       } else {
         String v1 = val.pop();
         String v2 = val.pop();
