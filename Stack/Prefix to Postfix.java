@@ -17,6 +17,6 @@ public class practice {
         val.push(temp);
       }
     }
-    System.out.println("Prefix: " + val.peek());
+    System.out.println("Postfix: " + val.peek());
   }
 }
