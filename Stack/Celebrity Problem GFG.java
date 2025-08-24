@@ -22,8 +22,8 @@ class Solution {
             for(int j=0;j<mat.length;j++)
             {
                 if(j==potential)   
-                continue; //means skipping Mat[i][i]=1 in column
-                if(mat[potential][j]==1)
+                continue; //means skipping Mat[i][i]=1 in column or skip checking self (mat[potential][potential])
+                if(mat[potential][j]==1)  // // if potential celebrity knows someone, FAIL
                 return -1;
             }
             //checking for column
