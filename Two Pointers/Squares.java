@@ -3,11 +3,7 @@
 // ans= [1,4,9,15,25,36,81,100]
 //Explanation: Since there will also be a negative number, so its square may be greator than the last number ie 5. Start one pointer from left and one from right. Compare the absolute value(absolute will remove -ve sign) if left is bigger store its square in ans and left pointer ko increase kr do but right ko mat kro kyuki absolute value of second element of left pointer 5 se bada ho shakta hai jo ki hai since 9 >  5  and increment left pointer only,so write 81 in ans. again 6  > 5, so write 36 in ans and  increment left pointer only. Now 1 < 5, so store 25 in the ans and decrement the right pointer only. 1 < 4, 1<3,1<2 so store 16,9 and 4 in ans and decrement right pointer. 
 
-public class Squares {
-  public static void main(String[] args) {
-    int[] arr = { -10, -9, -6, 1, 2, 3, 4, 5 };
-    int n = arr.length;
-    int left = 0, right = n - 1;
+
 
     int[] ans = arrange(arr, left, right);
 
